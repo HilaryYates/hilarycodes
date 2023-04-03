@@ -1,22 +1,41 @@
+import { useEffect, useState } from "react";
+import { Wrapper } from "./Wrapper";
+
 const App = () => {
+  const [dark, setDark] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const [showContent, setShowContent] = useState(false);
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+  }, []);
+
+  useEffect(() => {
+    if (loading === false) {
+      setTimeout(() => {
+        setShowContent(true);
+      }, 500);
+    }
+  }, [loading]);
   return (
-    <div className='h-screen w-screen bg-beige flex flex-col dark:bg-black '>
-      <div className='border-black border-[1px] m-5 flex flex-col'>
-        <div className='m-2'>
-          <h1 className='body-font font-roboto text-[50px]'>Hilary Yates</h1>
-          <h2 className='font-thin text-[16px]'>Web Developer</h2>
-        </div>
-        <div className='flex items-start flex-col m-[7px]'>
-          <div className='bg-black w-[5px] h-[5px] rounded mb-2'></div>
-          <button className='pb-2 font-semibold text-[14px] hover:text-stone-500'>Home</button>
-          <button className='pb-2 font-semibold text-[14px] hover:text-stone-500'>Projects</button>
-          <button className='pb-2 font-semibold text-[14px] hover:text-stone-500'>About</button>
-          <button className='pb-2 font-semibold text-[14px] hover:text-stone-500'>Contact</button>
-        </div>
+    <div className={dark ? "dark" : ""}>
+      <div className='bg-beige dark:bg-black h-screen w-screen'>
+        {showContent ? (
+          <Wrapper showContent={showContent} setDark={setDark} />
+        ) : (
+          <div
+            className={`h-screen w-screen bg-beige flex items-center justify-center dark:bg-black dark:text-white ${
+              loading ? "" : "opacity-0"
+            } ease-in-out duration-500 transition-all`}
+          >
+            <p className='text-2xl font-thin'>
+              Hilary Yates
+              <span className='font-thin text-gray-400'> Portfolio</span>
+            </p>
+          </div>
+        )}
       </div>
-      <div className='bg-black w-[7px] h-[7px]'></div>
-      <button className="font-roboto font-bold">Light</button>
-      <button className="font-roboto font-bold">Dark</button>
     </div>
   );
 };
