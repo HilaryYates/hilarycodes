@@ -20,9 +20,25 @@ const App = () => {
   }, [loading]);
   return (
     <div className={dark ? "dark" : ""}>
-      <div className='bg-beige dark:bg-black h-screen w-screen'>
+      <div className='bg-beige dark:bg-black dark:text-white'>
         {showContent ? (
-          <Wrapper showContent={showContent} setDark={setDark} />
+          <Wrapper showContent={showContent} setDark={setDark} dark={dark} />
+        ) : (
+          <div
+            className={`flex h-screen w-screen items-center justify-center ease-in-out duration-500 transition-all ${
+              loading ? "" : "opacity-0"
+            }`}
+          >
+            <p className='text-2xl'>
+              Hilary Yates
+              <span className='text-gray-300'> Portfolio</span>
+            </p>
+          </div>
+        )}
+      </div>
+      {/* <div className='bg-beige dark:bg-black h-screen w-screen'>
+        {showContent ? (
+          <Wrapper dark={dark} showContent={showContent} setDark={setDark} />
         ) : (
           <div
             className={`h-screen w-screen bg-beige flex items-center justify-center dark:bg-black dark:text-white ${
@@ -35,7 +51,7 @@ const App = () => {
             </p>
           </div>
         )}
-      </div>
+      </div> */}
     </div>
   );
 };
