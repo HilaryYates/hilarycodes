@@ -27,7 +27,7 @@ const Projects = [
   },
   {
     id: 3,
-    title: "Management System",
+    title: "Employee Management System",
     technologies: ["React", "NodeJS", "PostreSQL"],
     link: "https://github.com/HilaryYates/Management-System",
     description: "Through this app I learnt how to make CRUD operations",
@@ -41,7 +41,7 @@ const Projects = [
   },
   {
     id: 3,
-    title: "Shopping Catalogue",
+    title: "Business Cards",
     technologies: ["Redux"],
     link: "",
     description: "Text",
@@ -50,7 +50,7 @@ const Projects = [
 
 export const ProjectSection: React.FC = () => {
   return (
-    <div className='mr-4 flex flex-col overflow-y-scroll'>
+    <div className='mr-4 flex flex-col overflow-y-scroll mt-7'>
       <div className='flex justify-end items-center '>
         <BsSquareFill className='text-xs' />
         <p className='font-semibold'>Projects</p>

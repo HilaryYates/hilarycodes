@@ -2,6 +2,7 @@ import React, { PropsWithChildren, useState } from "react";
 import { BsDot, BsSquare, BsSquareFill } from "react-icons/bs";
 import { HomeSection } from "./HomeSection";
 import { ProjectSection } from "./ProjectSection";
+import { ContactSection } from "./ContactSection";
 
 const Menu = ["Home", "Projects", "Contact"] as const;
 
@@ -62,6 +63,8 @@ export const Wrapper: React.FC<{
             <HomeSection />
           ) : selectSection === "Projects" ? (
             <ProjectSection />
+          ) : selectSection === "Contact" ? (
+            <ContactSection />
           ) : null}
         </div>
       </div>

@@ -21,7 +21,7 @@ const App = () => {
   }, [loading]);
 
   return (
-    <div className={` ${dark ? "dark" : ""}`}>
+    <div className={` ${dark ? "" : "dark"}`}>
       <div className='bg-beige dark:bg-black dark:text-white '>
         {showContent ? (
           <Wrapper showContent={showContent} setDark={setDark} dark={dark} />
